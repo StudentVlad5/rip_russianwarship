@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/rip_russianwarship/static/css/main.7acaea2f.css",
+    "main.js": "/rip_russianwarship/static/js/main.07d3183d.js",
+    "index.html": "/rip_russianwarship/index.html",
+    "main.7acaea2f.css.map": "/rip_russianwarship/static/css/main.7acaea2f.css.map",
+    "main.07d3183d.js.map": "/rip_russianwarship/static/js/main.07d3183d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7acaea2f.css",
+    "static/js/main.07d3183d.js"
+  ]
+}
