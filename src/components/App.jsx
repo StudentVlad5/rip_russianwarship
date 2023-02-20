@@ -1,16 +1,19 @@
+import {Routes, Route} from 'react-router-dom';
+import { Home } from './Home/Home';
+
+import { NotFound } from './NotFound/NotFound';
+import { Statistics } from './Statistics/Statistics';
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <>
+
+    <Routes>
+      <Route path='/' element={<Home/>}>
+      <Route path="statistics" element={<Statistics/>}/>
+      </Route>
+      <Route path='*' element={<NotFound/>}/>
+    </Routes>
+    </>
+    
   );
 };

@@ -1,0 +1,15 @@
+[{"personnel_units": "підрозділи особового складу"},
+{"tanks": "танків"},
+{ "armoured_fighting_vehicles": "бойові броньовані машини"},
+{ "artillery_systems": "артилерійські_системи"},
+{ "mlrs": "реактивна система залпового вогню"},
+{ "aa_warfare_systems" : "засоби ППО"},
+{ "planes" : "літаків"},
+{ "helicopters": "гелікоптерів"},
+{ "vehicles_fuel_tanks": "транспортні засоби з паливом"},
+{ "warships_cutters": "кораблів"},
+{ "cruise_missiles": "крилатих ракет"},
+{ "uav_systems": "БПЛА"},
+{ "special_military_equip": "спеціальна техніка"},
+{ "atgm_srbm_systems": "армійська тактична ракетна система"}
+]
