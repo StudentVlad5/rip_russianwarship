@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { Audio } from 'react-loader-spinner';
-import { useData } from '../../services/Context';
 import  troops  from '../../json/constatnt.json';
 import  css  from "./Statistics.module.css";
+import { useParams } from "react-router-dom";
 
 export const Statistics = () => {
 
@@ -15,58 +15,49 @@ export const Statistics = () => {
     // const [daySet, setDaySet] = useState('');
 
     const API_STATISTICS = 'https://russianwarship.rip/api/v2/statistics/';
-    const {dataToday, dataYesterday} = useData();
-console.log(dataToday)
+
+const dateForSearch = useParams();
+console.log(API_STATISTICS+dateForSearch.data)
+console.log(dateForSearch);
       useEffect(()=>{
-           if(JSON.parse(localStorage.getItem('list')) !== '' && JSON.parse(localStorage.getItem('list')) !== undefined){setList(JSON.parse(localStorage.getItem('list')))};
+        async function dataStatistics () {
+        setStatus('pending');
+        await fetch(API_STATISTICS+dateForSearch.data, {
+            referrer: ""
+            }).then(res=>{if(res.ok) {return res.json()} 
+        return Promise.reject(new Error(`Can't find anything`))})
+        .then(key => {
+            localStorage.setItem('list', (JSON.stringify(key)))
+            setList(key);
+            setCurrentDay(dateForSearch);
+            setStatus('resolved');
+            setArmyTroops(Object.keys(key.data["stats"]));
+            setIncrease(key.data.increase);
+            setTotal(key.data.stats);
+            console.log(key.data.increase)
+        })
+        .catch(error=>{
+            console.log(error);
+        }).finally(setStatus('idle'));
+    }
+    if(currentDay !== dateForSearch) {dataStatistics()}
+    },[currentDay, dateForSearch, status])
 
-
-async function dataStatistics () {
-    setStatus('pending');
-    await fetch(`${API_STATISTICS}${dataToday}`, {
-        referrer: ""
-        }).then(res=>{if(res.ok) {return res.json()} 
-    return Promise.reject(new Error(`Can't find anything`))})
-    .then(key => {
-        localStorage.setItem('list', (JSON.stringify(key)))
-        setList(key);
-        setCurrentDay(dataToday);
-        setStatus('resolved');
-        setArmyTroops(Object.keys(key.data["stats"]));
-        setIncrease(key.data.increase);
-        setTotal(key.data.stats)
-    })
-    .catch(error=>{
-        console.log(error);
-    }).finally(setStatus('idle'));
-}
-if(currentDay !== dataToday) {dataStatistics()}
-},[currentDay, dataToday, status])
-
-// function openModalWindow (e, item) {
-//     e.preventDefault();
-//     document.querySelector('#popup-root').classList.remove('is-hide');
-//     setDaySet(e.currentTarget.dataset.setday);
-//     setListOfHours(item.map(item=>item))
-//     console.log(daySet, listOfHours);
-// } 
-if(status === 'pending') {  return(  
-<Audio
-    height="80"
-    width="80"
-    radius="9"
-    color="blue"
-    ariaLabel="loading"
-    wrapperStyle
-    wrapperClass
-/>)}
-
-
+    if(status === 'pending') {  return(  
+    <Audio
+        height="80"
+        width="80"
+        radius="9"
+        color="blue"
+        ariaLabel="loading"
+        wrapperStyle
+        wrapperClass
+    />)}
 
 if(status === 'resolved'){return (<div className={css.section__Weather}>
 
         <table className={css.table_weather}>
-        <caption className={css.title_weather}>RIP русні {currentDay}. День війни {list.data.day}</caption>
+        {/* <caption className={css.title_weather}>RIP русні {currentDay}. День війни {list.data.day}</caption> */}
             <thead className={css.thead_weather}>
                 <tr className={css.tr_weather}>
                     <th>Категорія війська</th>

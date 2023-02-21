@@ -1,13 +1,14 @@
-import {  Outlet } from 'react-router-dom';
-import { NavMenu } from 'components/Common/Common';
+// import {  Outlet } from 'react-router-dom';
+import { Calendar } from '../Calendar/Calendar';
 import css from "./Navigation.module.css";
 
-export  const Navigation = (date) => {
+export  const Navigation = () => {
+
     return (<div style={{width:'100%'}}><div className={css.NavContainer}>
-                {NavMenu(`${date}`)}
-                {NavMenu(`${date}`)}
+                <Calendar/>
+
      </div>
-     <div><Outlet/></div>
+     {/* <div><Outlet/></div> */}
      </div>
      )
 }

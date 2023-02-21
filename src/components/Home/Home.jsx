@@ -1,6 +1,7 @@
 import { Outlet} from "react-router-dom";
 import { useState } from "react";
 import { LeftCircleOutlined, RightCircleOutlined } from '@ant-design/icons';
+import { Navigation } from "../Navigation/Navigation";
 import css from "./Home.module.css";
 
 export const Home = () => {
@@ -20,6 +21,7 @@ const  handleViewBar = () => {
         <div className={css.menu} id="menuBar">
             <LeftCircleOutlined className={css.leftArrow} onClick={handleHideBar}/>
             <h3>Втрати русні</h3>
+            <Navigation/>
         </div>
         <Outlet/>
     </>)
