@@ -12,13 +12,12 @@ export const Statistics = () => {
     const [armyTroops, setArmyTroops] = useState([])
     const [increase, setIncrease] = useState([])
     const [total, setTotal] = useState([])
-    // const [daySet, setDaySet] = useState('');
+    const [days, setDays] = useState('');
 
     const API_STATISTICS = 'https://russianwarship.rip/api/v2/statistics/';
 
 const dateForSearch = useParams();
-console.log(API_STATISTICS+dateForSearch.data)
-console.log(dateForSearch);
+
       useEffect(()=>{
         async function dataStatistics () {
         setStatus('pending');
@@ -34,7 +33,7 @@ console.log(dateForSearch);
             setArmyTroops(Object.keys(key.data["stats"]));
             setIncrease(key.data.increase);
             setTotal(key.data.stats);
-            console.log(key.data.increase)
+            setDays(key.data.day);
         })
         .catch(error=>{
             console.log(error);
@@ -53,11 +52,11 @@ console.log(dateForSearch);
         wrapperStyle
         wrapperClass
     />)}
-
+console.log(currentDay)
 if(status === 'resolved'){return (<div className={css.section__Weather}>
 
         <table className={css.table_weather}>
-        {/* <caption className={css.title_weather}>RIP русні {currentDay}. День війни {list.data.day}</caption> */}
+        <caption className={css.title_weather}>RIP русні {currentDay.data}. День війни{days} </caption>
             <thead className={css.thead_weather}>
                 <tr className={css.tr_weather}>
                     <th>Категорія війська</th>
