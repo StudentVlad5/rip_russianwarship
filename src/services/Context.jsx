@@ -7,6 +7,7 @@ export const DataProvider = ({ children }) => {
   const [dataToday, setDataToday] = useState("");
   const [dataYesterday, setDataYesterday] = useState("");
 
+
 const yesterday = () => {
   let d = new Date();
   d.setDate(d.getDate() - 1);
@@ -23,7 +24,7 @@ const today = () => {
           setDataToday(today());},[])
 
   return (
-    <DataContext.Provider value={{ dataToday, dataYesterday}}>
+    <DataContext.Provider value={{ dataToday, dataYesterday }}>
       {children}
     </DataContext.Provider>
   );

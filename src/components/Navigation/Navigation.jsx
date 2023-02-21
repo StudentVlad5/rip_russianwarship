@@ -1,4 +1,5 @@
 // import {  Outlet } from 'react-router-dom';
+import { Flit } from 'components/Flatpickr/Flatpickr';
 import { Calendar } from '../Calendar/Calendar';
 import css from "./Navigation.module.css";
 
@@ -9,6 +10,7 @@ export  const Navigation = () => {
 
      </div>
      {/* <div><Outlet/></div> */}
+     <Flit/>
      </div>
      )
 }
