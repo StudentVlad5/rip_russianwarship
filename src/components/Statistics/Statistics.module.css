@@ -1,6 +1,7 @@
 .section__statistics {
     display: flex;
     justify-content: center;
+    width: 100%;
 }
 .table_statistics,
 .thead_statistics,
@@ -15,6 +16,7 @@
     border-radius: 10px;
     border: 2px solid black;
     transform: scale(0.9);
+    width: 100%;
 }
 .thead_statistics {
     column-gap: 2px;
@@ -36,4 +38,8 @@ td {
 }
 th {
     line-height: 30px;
+}
+.tr_statistics,
+.tr_statistics td {
+    height: 10px;
 }

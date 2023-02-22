@@ -55,7 +55,7 @@ const dateForSearch = useParams();
 console.log(currentDay)
 if(status === 'resolved'){return (<div className={css.section__statistics}>
 
-        <table className={css.table}>
+        <table className={css.table_statistics}>
         <caption className={css.title_statistics}>RIP русні станом на {currentDay.data.split('-').reverse().join('.')}. День війни {days} </caption>
             <thead className={css.thead_statistics}>
                 <tr className={css.tr_statistics}>
