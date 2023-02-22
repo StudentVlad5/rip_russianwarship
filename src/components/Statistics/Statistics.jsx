@@ -53,14 +53,14 @@ const dateForSearch = useParams();
         wrapperClass
     />)}
 console.log(currentDay)
-if(status === 'resolved'){return (<div className={css.section__Weather}>
+if(status === 'resolved'){return (<div className={css.section__statistics}>
 
-        <table className={css.table_weather}>
-        <caption className={css.title_weather}>RIP русні {currentDay.data}. День війни{days} </caption>
-            <thead className={css.thead_weather}>
-                <tr className={css.tr_weather}>
-                    <th>Категорія війська</th>
-                    <th>Категорія війська</th>
+        <table className={css.table}>
+        <caption className={css.title_statistics}>RIP русні станом на {currentDay.data.split('-').reverse().join('.')}. День війни {days} </caption>
+            <thead className={css.thead_statistics}>
+                <tr className={css.tr_statistics}>
+                    <th>Категорія війська (EN)</th>
+                    <th>Категорія війська (UK)</th>
                     <th>За день</th>
                     <th>Всього за період війни</th>
                 </tr>

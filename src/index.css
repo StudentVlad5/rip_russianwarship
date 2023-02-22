@@ -34,3 +34,18 @@ p {
   margin: 0;
   padding: 0;
 }
+.flatpickr-input{
+  width: 100%;
+  font-size: 18px;
+  border-radius: 10px;
+  display: flex;
+  text-align: center;
+  padding: 5px 0;
+  -webkit-box-shadow: 5px 10px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 5px 10px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 5px 10px 5px 0px rgba(0,0,0,0.75);
+}
+th{
+  border-radius: 5px;
+
+}

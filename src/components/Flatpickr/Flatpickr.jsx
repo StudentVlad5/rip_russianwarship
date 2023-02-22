@@ -14,21 +14,12 @@ const navigate = useNavigate()
           minDate: '2022-02-24',
           maxDate: new Date(),
           altFormat: 'YYYY-MM-DD',
+          dateFormat:'j-M-Y',
+          altInputClass: 'inputStyle',
           onChange: (setDay=>{
             const d = new Date(setDay).toLocaleString().split(',')[0].split('.').reverse().join('-');
              navigate(`${d}`)})
         }} ref={fp} />
-        {/* <button
-          type="button"
-          onClick={() => {
-            // if (!fp?.current?.flatpickr) return;
-            console.log(fp.current)
-            // navigate(`/${fp.current.flatpickr}`)
-            fp.current.flatpickr.clear();
-          }}
-        >
-          Clear
-        </button> */}
       </div>
     );
 }

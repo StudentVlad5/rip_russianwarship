@@ -10,10 +10,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: bisque;
-    padding: 10px 0;
+    background-color: white;
+    padding: 10px 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
 
 .NavContainer a {
     text-align: center;
+}
+.FlitContainer{
+    margin-top: 25px;
 }
