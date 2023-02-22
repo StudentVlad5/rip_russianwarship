@@ -8,10 +8,9 @@ export const Statistics = () => {
 
     const [status,setStatus] = useState('idle');
     const [currentDay, setCurrentDay] = useState('');
-    const [list, setList] = useState({});
-    const [armyTroops, setArmyTroops] = useState([])
-    const [increase, setIncrease] = useState([])
-    const [total, setTotal] = useState([])
+    const [armyTroops, setArmyTroops] = useState([]);
+    const [increase, setIncrease] = useState([]);
+    const [total, setTotal] = useState([]);
     const [days, setDays] = useState('');
 
     const API_STATISTICS = 'https://russianwarship.rip/api/v2/statistics/';
@@ -26,8 +25,7 @@ const dateForSearch = useParams();
             }).then(res=>{if(res.ok) {return res.json()} 
         return Promise.reject(new Error(`Can't find anything`))})
         .then(key => {
-            localStorage.setItem('list', (JSON.stringify(key)))
-            setList(key);
+            localStorage.setItem('list', (JSON.stringify(key)));
             setCurrentDay(dateForSearch);
             setStatus('resolved');
             setArmyTroops(Object.keys(key.data["stats"]));
