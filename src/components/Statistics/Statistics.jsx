@@ -69,7 +69,7 @@ if(status === 'resolved'){return (<div className={css.section__statistics}>
                 <td>{item}</td>
                 <td>{Object.values(troops.find(key => key[item]))}</td>
                 <td>{increase[`${item}`]}</td>
-                <td>{total[`${item}`]}</td>
+                <td>{ total[`${item}`]/1000 < 1 ? total[`${item}`]: (total[`${item}`]/1000).toString().split('.')[0] + ' ' + (total[`${item}`]).toString().slice(-3)}</td>
             </tr>)}
             </tbody>
         </table>
